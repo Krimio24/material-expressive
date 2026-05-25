@@ -9,12 +9,15 @@ import openfl.text.TextFormat;
 import openfl.utils.Assets;
 import lime.system.System;
 
-
+enum IconType {
+    Rounded;
+    Sharp;
+    Outlined;
+}
 
 class MaterialIcon extends TextField {
 
-
-      public function new(icon:String, type:String, color:MaterialColor = MaterialColor.primary, size:Float, x:Float = 0, y:Float = 0) {
+      public function new(icon:String, type:IconType, color:MaterialColor = MaterialColor.primary, size:Float, x:Float = 0, y:Float = 0) {
 
         var format:TextFormat = new TextFormat('fonts/Material_Symbols_$type/M.ttf', size, color);
         this.defaultTextFormat = format;
@@ -26,8 +29,5 @@ class MaterialIcon extends TextField {
         this.height = size;
         addChild(this);
 
-      }
-      public function getIcons():String {
-        System.openURL("https://fonts.google.com/icons", "_blank");
       }
 }
